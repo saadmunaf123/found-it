@@ -14,9 +14,9 @@ export default function Lost() {
     const isLost = false;
     const isFound = true;
 
-    const [file, setFile] = useState(null);
-    const [preview, setPreview] = useState("");
-    const fileRef = useRef(null);
+    const [file, setFile] = useState<File | null>(null);
+    const [preview, setPreview] = useState<string>("");
+    const fileRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
         return () => {
@@ -24,7 +24,7 @@ export default function Lost() {
         };
     }, [preview]);
 
-    function handleFile(selectedFile) {
+    function handleFile(selectedFile: File | undefined) {
         if (!selectedFile || !selectedFile.type.startsWith("image/")) return;
 
         setFile(selectedFile);
